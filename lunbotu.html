@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .img-list{
+            width: 600px;
+            height: 500px;
+            outline: 10px solid red;
+            position: relative;
+        }
+        .img-list li{
+            position: absolute;
+            list-style: none;
+        }
+
+        .pointer{
+            position: absolute;
+            z-index: 1;
+            bottom:50px;
+            left:60px;
+        }
+        .pointer a{
+            /* display:block; */
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius:50%;
+            margin-left: 10px;
+            
+            /*将背景颜色值设置到内容区，边框和内边距不在背景颜色 */
+            background-clip: content-box;
+            background-color: rgba(255, 255, 255, .6);
+            border: 3px solid transparent;
+            /* transparent 变成透明色 */
+            
+        }
+        .pointer a.active,
+        .pointer a:hover
+        {
+            background-color: rgba(255, 255, 255, 1);
+            border: 3px solid rgba(255, 255, 255,.3);
+            
+        }
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li><a href=""><img src="./img/lunbotu/1.jpg" alt=""></a></li>
+        <li><a href=""><img src="./img/lunbotu/2.jpg" alt=""></a></li>
+    
+        <div class="pointer">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    
+    
+    </ul>
+    
+</body>
+</html>
