@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function isInteger(isInt){
+        //     if(typeof isInt==Number()){
+        //         alert("输入的值是整数")
+        //     }else{
+        //         alert("输入的值不是整数")
+        //     }
+        // }
+        // isInteger("2");
+        // console.log(typeof 2)
+        function add(){
+               var sum=0;
+               console.log(arguments[0]);
+               console.log(arguments[1]);
+               console.log(arguments[0]+arguments[1])
+           if (arguments.length==2) {
+               sum=arguments[0]+arguments[1];
+           }else if(arguments.length==3){
+            sum=arguments[0]+arguments[1]+arguments[2];
+           }
+           return sum;
+        }
+        // document.write(add(1,2))
+        document.write(add(1)(2))
+        // document.write(add(1,2,3))
+    </script>
+</body>
+</html>
