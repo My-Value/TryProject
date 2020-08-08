@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function () {
+            // 数组的创建的SAN种方法
+            // 1构造函数之声明数组，并不赋值
+            // var arr=new Array();
+            // arr[0]=1;
+            // arr[1]=2;
+            // arr[2]=3;
+            // 2用构造函数创建数组并且赋值
+            // var arr=new Array(1,2,3,4);
+
+            // 3用字面量的方法声明数组
+            // var arr = [22, 1, 66, 87, 8, 6];
+            // for (let i = 0; i < arr.length; i++) {
+            //     document.write(arr[i] + ",");
+            // }
+
+            document.write("<br>开始实现大小排序。从小到大开始排序");
+            var arr = [22, 1, 66, 87, 8, 6];
+            function bubbleSort(arr) {
+                var temp=null;
+                for (var i = 0; i < arr.length-1; i++) {
+                    for (var j = 0; j < arr.length-1-i; j++) {
+                        if (arr[j] > arr[j + 1]) {
+                           temp=arr[j];
+                           arr[j]=arr[j+1];
+                           arr[j+1]=temp;
+                        }
+                    }
+                }
+                return arr;
+            }
+            arr=bubbleSort(arr);
+            for (let i = 0; i < arr.length; i++) {
+                document.write(arr[i] + ",");
+             }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+
+    </div>
+</body>
+
+</html>
