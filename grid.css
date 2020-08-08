@@ -1,0 +1,46 @@
+.main{
+    display: grid;
+    width: 600px;
+    height: 600px;
+    border: 10px solid skyblue;
+    /* 行 */
+    grid-template-rows: 100px 100px 100px  100px;
+    /* 列 */
+    /* grid-template-columns: 100px 100px 100px; */
+    grid-template-columns: repeat(3,100px);
+}
+.item{
+    font-size: 50px;
+    background-color: #E91E63;
+    color: #ffffff;
+}
+.item-1{
+    background-color: red;
+}
+.item-2{
+    background-color: rgb(238, 180, 180);
+}
+.item-3{
+    background-color: orange;
+}
+.item-4{
+    background-color: yellow;
+}
+.item-5{
+    background-color: yellowgreen;
+}
+.item-6{
+    background-color: rgba(58, 52, 52, 0.295);
+}
+.item-7{
+    background-color: blue;
+}
+.item-8{
+    background-color: purple;
+}
+.item-9{
+    background-color: seashell;
+}
+.item-10{
+    background-color: black;
+}
