@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='.//js/vue.js'></script>
+</head>
+
+<body>
+    <div id="demo">
+        <input type="text" v-model='fname'>
+        <button @click='add'>添加</button>
+        <button @click='remove()'>删除</button>
+        <button @click='change'>替换</button>
+
+        <p :key="index" v-for='(item,index) in msg'>{{item}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                fname: '',
+                currentIndex: 0,
+                msg: ['orange', 'apple', 'banana']
+            },
+            methods: {
+                add: function () {
+                    this.msg.push(this.fname)
+                },
+                remove: function () {
+                    //    console.log(this.msg);
+                    console.log(this.fname);
+
+                    for (let i = 0; i < this.msg.length; i++) {
+                        if (this.fname == this.msg[i]) {
+                            console.log("true");
+                            console.log(this.msg[i]);
+
+
+                            break
+
+                        } else {
+                            console.log("false");
+
+                        }
+                    }
+                },
+                change:function(){
+                    this.msg=this.msg.slice(0,2)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
