@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        span {
+            display: block;
+            width: 300px;
+            text-align: left;
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+
+        span label {
+            margin-left: 40px;
+        }
+        span:nth-child(4){
+            height: auto;
+        }
+        textarea {
+            margin-left: -32px;
+            vertical-align: middle;
+        }
+    </style>
+    <script src='.//js/vue.js'></script>
+</head>
+
+<body>
+    <div id="demo">
+
+        <form action="https://www.baidu.com/">
+            <span>
+                姓名：
+                <label>
+
+                    <input type="text" v-model='uname'>
+                </label>
+            </span>
+            <span>
+                性别：
+
+                <label>
+                    男<input type="radio" value="1" v-model='gander'>
+                    女<input type="radio" value="2" v-model='gander'>
+                </label>
+            </span>
+            <span>
+                爱好：
+                <label>
+                    篮球<input type="checkbox" name="basketball" value="1" v-model='hobby'>
+                    唱歌<input type="checkbox" name="sing" value="2" v-model='hobby'>
+                    写代码<input type="checkbox" name="code" value="3" v-model='hobby'>
+                </label>
+            </span>
+            <span>
+                职业：
+                <label>
+
+                    <select name="sele" id="" v-model='occupation' multiple="true">
+                        <option value="0">请选择职业...</option>
+                        <option value="1">教师</option>
+                        <option value="2">学生</option>
+                        <option value="3">程序员</option>
+                        <option value="4">律师</option>
+                    </select>
+                </label>
+            </span>
+            <span>
+                个人简介：
+                <label>
+
+                    <textarea v-model='desc' name="" id="" cols="15" rows="3"></textarea>
+                </label>
+            </span>
+
+
+            <button type="submit" @click.prevent='handle'>Submit</button>
+        </form>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                uname: '',
+                gander: 1,
+                hobby: ['1'],
+                occupation:['1','2'],
+                desc:'年后'
+            },
+            methods: {
+                handle: function () {
+                    console.log(this.uname)
+                    console.log(this.gander)
+                    console.log(this.hobby)
+                    console.log(this.occupation.toString())
+                    console.log(this.desc)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
