@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <script src='.//js/vue.js'></script>
+</head>
+
+<body>
+    <div id="demo">
+        <div>{{pmsg}}</div>
+        <menu-item :menu-title='ptitle'></menu-item>
+    </div>
+    <script>
+        Vue.component('third-com',{
+         props:['testTitle'],
+          template:'<div>{{testTitle}}</div>'
+        })
+        Vue.component('menu-item',{
+         props:['menuTitle'],
+          template:'<div>{{menuTitle}}<third-com testTitle="hello"></third-com></div>'
+        })
+        var vm=new Vue({
+           el:'#demo',
+           data:{
+               pmsg:'我是父元素',
+               ptitle:'动态绑定属性'
+           },
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>
