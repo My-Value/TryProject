@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./grid.css">
+ <!-- <script src='.//js/vue.js'></script> -->
+ <script src="/cv-2.e31bb0bc.js"></script>
 </head>
-<body>
-    <div class="main">
-        <div class="item item-1"></div>
-        <div class="item item-2"></div>
-        <div class="item item-3"></div>
-        <div class="item item-4"></div>
-        <div class="item item-5"></div>
-        <div class="item item-6"></div>
-        <div class="item item-7"></div>
-        <div class="item item-8"></div>
-        <div class="item item-9"></div>
-        <div class="item item-10"></div>
-    </div>
 
+<body>
+    <div id="demo">
+        <span :style="{fontSize:fontSize+'px'}">{{msg}}</span>
+        <menu-item @enlarge-text="handle"></menu-item>
+    </div>
+    <script>Vue.component('menu-item', {
+  template: "\n                <div>\n                    <button @click='$emit(\"enlarge-text\")'>\u8BA9\u7236\u7EC4\u4EF6\u5B57\u4F53\u53D8\u5927</button>\n                </div>\n            \n            "
+});
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    msg: '父组件',
+    fontSize: 10
+  },
+  methods: {
+    handle: function handle() {
+      this.fontSize += 1;
+    }
+  }
+});</script>
 </body>
+
 </html>
