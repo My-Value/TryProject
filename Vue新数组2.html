@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='.//js/vue.js'></script>
+</head>
+
+<body>
+    <div id="demo">
+        <p :key="index" v-for='(item,index) in msg'>{{item}}</p>
+        <p>{{People.name}}</p>
+        <p>{{People.age}}</p>
+        <p>{{People.gender}}</p>
+        <p>{{People.dress}}</p>
+    </div>
+    <script>
+        var vm=new Vue({
+            el: '#demo',
+            data: {
+                // msg: [{
+                //     id: 1,
+                //     name: 'apple'
+                // },
+                // {
+                //     id:2,
+                //     name:'orange'
+                // },
+                // {   
+                //     id:3,
+                //     name:'pach'
+                // }]
+                msg:['apple','orange','pech'],
+                People:{
+                    name:'张三',
+                    age:4
+                }
+            },
+            methods: {},
+        })
+        // Vue.set(vm.msg,1,'lemon')
+        // vm.$set(vm.msg,2,'banana')
+        Vue.set(vm.People,'gender','男')
+        vm.$set(vm.People,'dress','划过三')
+    </script>
+</body>
+
+</html>
