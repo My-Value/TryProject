@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <script src='.//js/vue.js'></script>
+ <script src="./js/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <router-link to="/home/1">This is home</router-link>
+        <router-link to="/home/2">This is home</router-link>
+        <router-link to="/home/3">This is home</router-link>
+        <router-link to="/home/4">This is home</router-link>
+        <router-link to="/school">This is school</router-link>
+
+        <router-view></router-view>
+    </div>
+    <script>
+        var Home={
+            props:['id'],
+            template:'<div>我是{{id}}的家</div>'
+        }
+
+        var School={
+            template:'<div>我是School</div>'
+        }
+        var router=new VueRouter({
+            routes:[
+                {
+                    path:'/',
+                    redirect: '/home'
+                },
+                {
+                    path:'/home/:id',
+                    component:Home,
+                    props:true
+                },
+                {
+                    path:'/school',
+                    component:School
+                 
+                }
+            ]
+        })
+        var vm=new Vue({
+           el:'#demo',
+           data:{},
+           methods:{},
+           router
+        });
+    </script>
+</body>
+
+</html>
