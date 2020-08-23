@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <script src='.//js/vue.js'></script>
+ <script src="./js/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <router-link to="/home">This is home</router-link>
+        <router-link to="/school">This is school</router-link>
+
+        <router-view></router-view>
+    </div>
+    <script>
+        var Home={
+            template:'<div>我是Home</div>'
+        }
+
+        var School={
+            template:`
+            <div>
+                我是School
+                <hr/>
+                <!--子路由的连接-->
+                <router-link to="/school/class1">一班</router-link>
+                <router-link to="/school/class2">二班</router-link> 
+                <!--子路由的占位符-->
+                <router-view/></router-view>
+            </div>`
+        }
+        //子路由组件    
+        var Class1={
+            template:'<div>这里是一班</div>'
+        }
+        var Class2={
+            template:'<div>这里是二班</div>'
+        }
+        var router=new VueRouter({
+            routes:[
+                {
+                    path:'/',
+                    redirect: '/home'
+                },
+                {
+                    path:'/home',
+                    component:Home
+                },
+                // children表示子路由的规则
+                {
+                    path:'/school',
+                    component:School,
+                    children:[
+                        {
+                            path:'/school/class1',
+                            component:Class1
+                        },
+                        {
+                            path:'/school/class2',
+                            component:Class2
+                        }
+                    ]
+                 
+                }
+            ]
+        })
+        var vm=new Vue({
+           el:'#demo',
+           data:{},
+           methods:{},
+           router
+        });
+    </script>
+</body>
+
+</html>
